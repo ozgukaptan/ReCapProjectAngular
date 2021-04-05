@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     CarDetailComponent,
     FilterCarPipe,
     FilterComponent,
-    PaymentComponent
+    PaymentComponent,
+    BrandListComponent
+    
     
   ],
   imports: [
