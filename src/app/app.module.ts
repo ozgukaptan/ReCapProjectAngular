@@ -16,7 +16,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 
 
 import {ToastrModule} from "ngx-toastr";
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -47,6 +47,7 @@ import { CarListComponent } from './components/car-list/car-list.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
