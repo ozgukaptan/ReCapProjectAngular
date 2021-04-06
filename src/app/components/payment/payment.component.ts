@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { Car, CarDetail } from 'src/app/models/car';
 import { Payment } from 'src/app/models/payment';
 import { Rental } from 'src/app/models/rental';
 import { CarDetailService } from 'src/app/services/car-detail.service';
@@ -18,7 +18,7 @@ export class PaymentComponent implements OnInit {
     private router: Router, private toastr: ToastrService, private paymentService: PaymentService
   ) { }
   rental: Rental;
-  car: Car;
+  carDetail: CarDetail;
   amountOfPayment: number = 0;
   payment: Payment = { amount: 0 };
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class PaymentComponent implements OnInit {
 
   getCar() {
     this.carDetailService.getCar(this.rental.carId).subscribe(response => {
-      this.car = response.data;
+      this.carDetail = response.data;
       this.paymentCalculator();
     }, responseError => {
       console.log("message")
@@ -53,8 +53,8 @@ export class PaymentComponent implements OnInit {
 
       var numberOfDays = Math.ceil(difference / (1000 * 3600 * 24));
 
-      console.log(numberOfDays * this.car.dealyPrice)
-      this.amountOfPayment = numberOfDays * this.car.dealyPrice;
+      console.log(numberOfDays * this.carDetail.dealyPrice)
+      this.amountOfPayment = numberOfDays * this.carDetail.dealyPrice;
       this.payment.amount = this.amountOfPayment;
       if (this.amountOfPayment <= 0) {
         this.router.navigate(['/cars']);

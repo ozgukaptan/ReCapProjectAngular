@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { Car, CarDetail } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 
-  car: Car;
-  cars: Car[] = [];
+  car: CarDetail;
+  cars: CarDetail[] = [];
   currentCar: Car;
   dataLoaded: boolean = false;
   filterText = "";

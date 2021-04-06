@@ -13,9 +13,6 @@ export interface Car  {
 export interface CarDetail extends Car{
     color : string;
     brand : string;
-    modelYear : string;
-    dealyPrice : number;
-    description : string;
     carImages : CarImage[]
 
 }
