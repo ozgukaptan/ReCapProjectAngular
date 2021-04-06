@@ -5,27 +5,30 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { LoginComponent } from './components/login/login.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: CarComponent },
+  { path: "", pathMatch: "full", component: LoginComponent },
+  { path: "login", pathMatch: "full", component: LoginComponent },
 
 
   {
     path: '',
     component: NaviComponent,
     children: [
-      { path: "", pathMatch: "full", component: CarComponent },
-      { path: "cars", component: CarComponent },
-      { path: "cars/brand/:brandId", component: CarComponent },
-      { path: "cars/color/:colorId", component: CarComponent },
-      { path: "car/:id", component: CarDetailComponent },
-      { path: "cars/:brandId/:colorId", component: CarComponent },
-      { path: "payment/:rental", component: PaymentComponent },
-      { path: "colorlist", component: ColorListComponent },
-      { path: "carlist", component:CarListComponent},
-      { path: "brandlist", component:BrandListComponent}
+      { path: "cars", component: CarComponent,canActivate:[LoginGuard] },
+      { path: "cars/brand/:brandId", component: CarComponent,canActivate:[LoginGuard] },
+      { path: "cars/color/:colorId", component: CarComponent,canActivate:[LoginGuard] },
+      { path: "car/:id", component: CarDetailComponent,canActivate:[LoginGuard] },
+      { path: "cars/:brandId/:colorId", component: CarComponent,canActivate:[LoginGuard] },
+      { path: "payment/:rental", component: PaymentComponent,canActivate:[LoginGuard] },
+      { path: "colorlist", component: ColorListComponent,canActivate:[LoginGuard] },
+      { path: "carlist", component:CarListComponent,canActivate:[LoginGuard]},
+      { path: "brandlist", component:BrandListComponent,canActivate:[LoginGuard]},
+     
     ]
   }
 

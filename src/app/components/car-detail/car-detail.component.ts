@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { Car, CarDetail } from 'src/app/models/car';
 import { Rental } from 'src/app/models/rental';
 import { ResponseModel } from 'src/app/models/responseModel';
 import { CarDetailService } from 'src/app/services/car-detail.service';
@@ -16,7 +16,7 @@ import { RentalService } from 'src/app/services/rental.service';
 export class CarDetailComponent implements OnInit {
 
   apiUrl: string = "https://localhost:44352";
-  car: Car;
+  car: CarDetail;
   rentDate: Date;
   returnDate: Date;
   dataLoaded: boolean = false;
