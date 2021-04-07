@@ -13,7 +13,7 @@ export class RentalService {
   
 
   apiUrl = "https://localhost:44352/api/"
-  environment: any;
+  
   constructor(private httpClient:HttpClient) { }
 
   getIsRentable(rental:Rental):Observable<ResponseModel>{

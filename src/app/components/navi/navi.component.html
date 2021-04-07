@@ -31,6 +31,11 @@
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
+          <button routerLink="login" *ngIf="checkToLogin() == false " type="button" class="btn btn-success">Giriş Yap</button>
+        &nbsp;
+        <button type="button" routerLink="register" *ngIf="checkToLogin() == false" class="btn btn-info">Kayıt ol</button>
+        <button type="button" routerLink="register" *ngIf="checkToLogin() == true" class="btn btn-info">{{firstName}} {{lastName}}</button>
+        <button type="button" routerLink="register" *ngIf="checkToLogin() == true" (click)="logout()" class="btn btn-info">Çıkış Yap</button>
         </form>
       </div>
     </div>

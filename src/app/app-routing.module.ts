@@ -11,8 +11,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: LoginComponent },
-  { path: "login", pathMatch: "full", component: LoginComponent },
+  { path: "", pathMatch: "full", component: CarComponent },
+  
 
 
   {
@@ -28,6 +28,7 @@ const routes: Routes = [
       { path: "colorlist", component: ColorListComponent,canActivate:[LoginGuard] },
       { path: "carlist", component:CarListComponent,canActivate:[LoginGuard]},
       { path: "brandlist", component:BrandListComponent,canActivate:[LoginGuard]},
+      {path:"login",component:LoginComponent}
      
     ]
   }
