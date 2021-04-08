@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
@@ -13,7 +14,7 @@ export class NaviComponent implements OnInit {
 lastName:string;
 firstName : string;
 
-  constructor(private authService:AuthService , private localStorageService:LocalstorageService , private router:Router) { }
+  constructor(private authService:AuthService , private localStorageService:LocalstorageService , private router:Router , private cookieService:CookieService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ firstName : string;
   logout()
   {
     localStorage.clear();
+    this.cookieService.delete('userId');
     window.location.reload();
   }
 

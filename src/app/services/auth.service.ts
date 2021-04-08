@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoginModel } from '../models/loginModel';
+import { RegisterModel } from '../models/registerModel';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
@@ -25,5 +27,8 @@ export class AuthService {
     }
   }
 
+  register(registerModel:RegisterModel):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"register",registerModel);
+  }
   
 }

@@ -25,6 +25,8 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrandListComponent,
     ColorListComponent,
     CarListComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+   
     
     
   ],
@@ -57,7 +61,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [ {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
+  providers: [ {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

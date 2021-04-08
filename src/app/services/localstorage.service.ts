@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LocalstorageService {
 
+  userId: string = "userId";
   firstName: string = "firstName";
   lastName: string = "lastName";
   constructor() { }
@@ -13,12 +14,20 @@ export class LocalstorageService {
     localStorage.setItem("token", responseDataToken)
   }
 
+  setLocalstorageUserId(userId: any) {
+    localStorage.setItem(this.userId, userId)
+  }
+
   setLocalstorageFirstName(firstName: any) {
     localStorage.setItem(this.firstName, firstName)
   }
 
   setLocalstorageLastName(lastName: any) {
-    localStorage.setItem(this.firstName, lastName)
+    localStorage.setItem(this.lastName, lastName)
+  }
+
+  getUserId(): string {
+    return localStorage.getItem(this.userId) as string
   }
 
    getFirstName(): string {
