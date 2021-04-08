@@ -7,6 +7,7 @@ export interface Car  {
     modelYear : string;
     dealyPrice : number;
     description : string;
+    findeksPoint : number;
     
 }
 

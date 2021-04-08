@@ -14,6 +14,9 @@ export class LocalstorageService {
     localStorage.setItem("token", responseDataToken)
   }
 
+  getLocalstorageToken(): string {
+    return localStorage.getItem("token") as string
+  }
   setLocalstorageUserId(userId: any) {
     localStorage.setItem(this.userId, userId)
   }

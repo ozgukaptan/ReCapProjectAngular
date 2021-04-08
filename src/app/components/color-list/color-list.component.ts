@@ -40,6 +40,7 @@ export class ColorListComponent implements OnInit {
     this.colorAddForm = this.formBuilder.group({
       name: ['', [Validators.required]],
     });
+    
   }
 
   setSelectedColorToUpdate(color: Color) {

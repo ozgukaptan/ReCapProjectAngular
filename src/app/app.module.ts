@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { CookieService } from 'ngx-cookie-service';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CookieService } from 'ngx-cookie-service';
     CarListComponent,
     LoginComponent,
     RegisterComponent,
+    UserUpdateComponent,
    
     
     

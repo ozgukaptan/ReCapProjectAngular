@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: "colorlist", component: ColorListComponent, canActivate: [LoginGuard] },
       { path: "carlist", component: CarListComponent, canActivate: [LoginGuard] },
       { path: "brandlist", component: BrandListComponent, canActivate: [LoginGuard] },
+      { path: "updateuser", component: UserUpdateComponent, canActivate: [LoginGuard] },
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent }
 

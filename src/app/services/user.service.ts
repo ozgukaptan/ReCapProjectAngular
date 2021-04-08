@@ -19,8 +19,18 @@ export class UserService {
     return this.httpClient.get<SingleResponseModel<User>>(newPath);
   }
 
+  getById(id: number): Observable<SingleResponseModel<User>> {
+    let newPath = this.apiUrl + 'getbyid?id=' + id;
+    return this.httpClient.get<SingleResponseModel<User>>(newPath);
+  }
+
   addUser(user:User): Observable<ResponseModel>{
     let newPath = this.apiUrl + 'getbyemail?add';
+    return this.httpClient.post<ResponseModel>(newPath,user);
+  }
+
+  updateUser(user:User):Observable<ResponseModel>{
+    let newPath = this.apiUrl + 'userupdate';
     return this.httpClient.post<ResponseModel>(newPath,user);
   }
 }

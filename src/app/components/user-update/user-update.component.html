@@ -1,0 +1,64 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Kullanıcı Güncelle</h5></div>
+        <div class="card-body">
+          <form [formGroup]="userUpdateForm" *ngIf="dataLoaded">
+            <div class="mb-3">
+                <label for="lastName">Kullanıcı Adı</label>
+                <div class="from-group">
+                  <input
+                    type="text"
+                    id="firstName"
+                    formControlName="firstName"
+                    class="form-control"
+                    placeholder="Kullanıcı Adı"
+                  />
+                </div>
+              </div>
+            <div class="mb-3">
+                <label for="lastName">Kullanıcı Soyadı</label>
+                <div class="from-group">
+                  <input
+                    type="text"
+                    id="lastName"
+                    formControlName="lastName"
+                    class="form-control"
+                    placeholder="Kullanıcı Adı"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email">Kullanıcı E-posta</label>
+                <div class="from-group">
+                  <input
+                    type="email"
+                    id="email"
+                    [value]=user.lastName
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="Kullanıcı Kullanıcı E-posta"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password">Şifre</label>
+                <div class="from-group">
+                  <input
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    class="form-control"
+                    placeholder="Kullanıcı Kullanıcı Şifre"
+                  />
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-primary" (click)="updateUser()" >Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

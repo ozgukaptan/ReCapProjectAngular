@@ -11,85 +11,125 @@
           <th>Marka</th>
           <th>Renk</th>
           <th>Model Yılı</th>
-          
+
           <th>Günlük</th>
           <th>Toplam</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>{{rental.rentDate}}</td>
-          <td>{{rental.returnDate}}</td>
-          <td>{{carDetail.brand}}</td>
-          <td>{{carDetail.color}}</td>
-          <td>{{carDetail.modelYear}}</td>
-          <td>{{carDetail.dealyPrice | currency:"₺"}}</td>
-          <td><strong class="text-danger">{{amountOfPayment | currency:"₺"}}</strong></td>
+          <td>{{ rental.rentDate }}</td>
+          <td>{{ rental.returnDate }}</td>
+          <td>{{ carDetail.brand }}</td>
+          <td>{{ carDetail.color }}</td>
+          <td>{{ carDetail.modelYear }}</td>
+          <td>{{ carDetail.dealyPrice | currency: "₺" }}</td>
+          <td>
+            <strong class="text-danger">{{
+              amountOfPayment | currency: "₺"
+            }}</strong>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>
-
 
 <div class="card mt-4">
   <div class="card-header text-center">
     <strong>Ödeme İşlemlemi</strong>
   </div>
+
   <div class="card-body">
     <div class="row">
-      <div class="inputbox mt-3">
-        <span>Kart sahibinin adı soyadı</span>
-        <input
-          type="text"
-          name="name"
-          class="form-control"
-          required="required"
-        />
+      <div class="inputbox mt-3 mr-2">
+        <span>Kart Seç</span>
+        <div class="col col-4">
+          <select id="user-credit-cards-select" class="form-select form-control mb-3"
+                    [ngModel]="selectedCreditCard" (ngModelChange)="fillCardInformation($event)">
+                    <option [ngValue]="undefined">Kredi Kartlarınız</option>
+                    <option [ngValue]="creditCard" *ngFor="let creditCard of creditCards">
+                        {{ creditCard.cardName }} -
+                        {{ creditCard.cardNumber }}
+                    </option>
+                </select> 
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="inputbox mt-3 mr-2">
-            <span>Kart numarası</span>
-            <input
-              type="text"
-              name="name"
-              class="form-control"
-              required="required"
-            />
-            <i class="fa fa-credit-card"></i>
-          </div>
+        <i class="fa fa-credit-card"></i>
+      </div>
+      <form [formGroup]="creditCardForm" *ngIf="creditCardForm">
+        <div class="inputbox mt-3">
+          <span>Kart sahibinin adı soyadı</span>
+          <input
+            type="text"
+            name="name"
+            formControlName="cardName"
+            class="form-control"
+            required="required"
+          />
         </div>
-        <div class="col-md-6">
-          <div class="d-flex flex-row">
+        <div class="row">
+          <div class="col-md-6">
             <div class="inputbox mt-3 mr-2">
-              <span>Son kullanım tarihi</span>
+              <span>Kart numarası</span>
               <input
                 type="text"
                 name="name"
+                formControlName="cardNumber"
                 class="form-control"
                 required="required"
               />
+              <i class="fa fa-credit-card"></i>
             </div>
-            <div class="inputbox mt-3 mr-2">
-              <span>Güvenlik kodu</span>
-              <input
-                type="text"
-                name="name"
-                class="form-control"
-                required="required"
-              />
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex flex-row">
+              <div class="inputbox mt-3 mr-2">
+                <span>Son kullanım tarihi</span>
+                <input
+                  type="text"
+                  name="name"
+                  formControlName="expration"
+                  class="form-control"
+                  required="required"
+                />
+              </div>
+              <div class="inputbox mt-3 mr-2">
+                <span>Güvenlik kodu</span>
+                <input
+                  type="text"
+                  name="name"
+                  formControlName="cvv"
+                  class="form-control"
+                  required="required"
+                />
+              </div>
+              <div class="check">
+                <div class="form-check form-switch">
+                  <input
+                    [(ngModel)]="isChecked"
+                    class=""
+                    type="checkbox"
+                    id="isChecked"
+                    formControlName="isChecked"
+                    checked
+                  />
+                  <label class="form-check-label" for="isChecked"
+                    >Kredi kartını kaydet</label
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
-    
   </div>
+
   <div class="card-footer">
     <div class="row">
-        <button (click)="pay()" class="btn btn-success"><strong>{{amountOfPayment |currency:"₺"}} </strong>Ödeme Yap</button>
+      <button (click)="pay()" class="btn btn-success">
+        <strong>{{ amountOfPayment | currency: "₺" }} </strong>Ödeme Yap
+      </button>
     </div>
-</div>
+  </div>
 </div>

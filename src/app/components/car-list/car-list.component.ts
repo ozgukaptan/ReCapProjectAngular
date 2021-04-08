@@ -69,7 +69,8 @@ export class CarListComponent implements OnInit {
       colorId: ['', [Validators.required]],
       modelYear: ['', [Validators.required]],
       dealyPrice: ['', [Validators.required]],
-      description: ['', [Validators.required]]
+      description: ['', [Validators.required]],
+      findekspoint: ['', [Validators.required]]
     })
   }
 
@@ -80,7 +81,8 @@ export class CarListComponent implements OnInit {
       colorId: [this.selectedcar.colorId, [Validators.required]],
       modelYear: [this.selectedcar.modelYear, [Validators.required]],
       dealyPrice: [this.selectedcar.dealyPrice, [Validators.required]],
-      description: [this.selectedcar.description, [Validators.required]]
+      description: [this.selectedcar.description, [Validators.required]],
+      findekspoint: [this.selectedcar.findeksPoint, [Validators.required]]
     })
   }
 
@@ -132,6 +134,4 @@ export class CarListComponent implements OnInit {
     this.selectedcar = carDetail;
     this.updateCreateForm();
   }
-
-
 }
