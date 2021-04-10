@@ -16,7 +16,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 
 
 import {ToastrModule} from "ngx-toastr";
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { FormsModule , NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -49,8 +49,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     LoginComponent,
     RegisterComponent,
     UserUpdateComponent,
-    HighlightDirective
-    
+    HighlightDirective,
    
     
     
@@ -66,7 +65,8 @@ import { HighlightDirective } from './directives/highlight.directive';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [ {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},CookieService],
+  providers: [ {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    { provide: NG_VALUE_ACCESSOR, useClass: LoginComponent, multi: true },CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

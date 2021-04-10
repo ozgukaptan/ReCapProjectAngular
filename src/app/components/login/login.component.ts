@@ -14,6 +14,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+public emailInput = new FormControl('');
+public passwordInput = new FormControl('');
+
   loginForm: FormGroup;
   userId : string;
   
@@ -37,8 +40,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log(this.passwordInput.value)
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      //console.log(this.loginForm.value);
       let loginModel = Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response => {

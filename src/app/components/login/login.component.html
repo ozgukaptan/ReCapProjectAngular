@@ -5,6 +5,7 @@
   
         <div class="form-floating">
           <input
+          [formControl] = "emailInput"
           formControlName="email"
             type="email"
             class="form-control"
@@ -15,6 +16,7 @@
         </div>
         <div class="form-floating">
           <input
+          [formControl] = "passwordInput"
             formControlName="password"
             type="password"
             class="form-control"
