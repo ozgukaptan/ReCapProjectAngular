@@ -28,6 +28,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { CookieService } from 'ngx-cookie-service';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
     LoginComponent,
     RegisterComponent,
     UserUpdateComponent,
+    HighlightDirective
+    
    
     
     
